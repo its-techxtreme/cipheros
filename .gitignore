@@ -1,0 +1,16 @@
+# local junk. dont push this
+.cursor/
+.vscode/
+
+# plans + logs. not the site
+agent.md
+phases/
+story-log.md
+devlog*.md
+guide.md
+docs/
+notes*.md
+*.plan.md
+
+.env
+.env.*
