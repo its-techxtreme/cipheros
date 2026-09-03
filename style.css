@@ -1,1 +1,449 @@
-/* skin later. rn its naked */
+@import url("https://fonts.googleapis.com/css2?family=Kalam:wght@400;700&family=Courier+Prime&display=swap");
+
+:root {
+  --cork: #c4a574;
+  --cork2: #b08958;
+  --cork3: #d2b48c;
+  --desk: #3d2a1a;
+  --desk2: #5a3d28;
+  --tape: #e8d5a8;
+  --ink: #2a2118;
+  --yarn: #9b2b2b;
+  --manila: #e6cc94;
+  --tab: #d4b56a;
+  --paper: #f4ead6;
+  --sticky: #f3e08a;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  height: 100%;
+  overflow: hidden;
+  color: var(--ink);
+  font-family: "Kalam", cursive;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* cork wall. not wood planks. not a phone on a table */
+#board {
+  position: relative;
+  flex: 1;
+  min-height: 0;
+  background-color: var(--cork);
+  background-image:
+    radial-gradient(circle at 12% 20%, rgba(80, 50, 25, 0.18) 1px, transparent 1.4px),
+    radial-gradient(circle at 48% 62%, rgba(80, 50, 25, 0.14) 1px, transparent 1.3px),
+    radial-gradient(circle at 81% 34%, rgba(255, 230, 190, 0.2) 1.2px, transparent 1.6px),
+    radial-gradient(circle at 30% 78%, rgba(80, 50, 25, 0.16) 1px, transparent 1.4px),
+    linear-gradient(90deg, var(--cork) 0, var(--cork2) 48%, var(--cork3) 100%);
+  background-size: 22px 22px, 31px 28px, 19px 25px, 27px 21px, 100% 100%;
+}
+
+/* grain + lamp. detective basement energy */
+#board::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.22;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+#board::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 2;
+  background:
+    radial-gradient(ellipse 70% 55% at 72% 0%, rgba(255, 214, 150, 0.22), transparent 58%),
+    radial-gradient(ellipse 80% 40% at 50% 100%, rgba(30, 16, 8, 0.38), transparent 55%);
+}
+
+/* menubar. full width like a real os. tape stuck on the cork */
+#tape {
+  position: relative;
+  z-index: 30;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  height: 42px;
+  padding: 0 14px;
+  background: var(--tape);
+  border-bottom: 2px solid #c4ae7a;
+  box-shadow: 0 3px 0 rgba(0, 0, 0, 0.18);
+}
+
+#tape-title {
+  font-family: "Kalam", cursive;
+  font-size: 1.35rem;
+  font-weight: 700;
+  background: none;
+  border: none;
+  color: var(--ink);
+  cursor: pointer;
+  padding: 0;
+}
+
+#status {
+  margin: 0;
+  flex: 1;
+  text-align: center;
+  font-family: "Courier Prime", monospace;
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  opacity: 0.7;
+}
+
+#clock {
+  margin: 0;
+  font-family: "Courier Prime", monospace;
+  font-size: 0.95rem;
+}
+
+/* app icons. left column like every webos ever */
+#icons {
+  position: absolute;
+  top: 18px;
+  left: 14px;
+  width: 108px;
+  z-index: 8;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+#yarn {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 108px;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+#yarn line {
+  stroke: var(--yarn);
+  stroke-width: 1.1;
+  stroke-linecap: round;
+  opacity: 0.85;
+}
+
+.pin {
+  position: relative;
+  z-index: 2;
+  width: 92px;
+  border: 0;
+  background: none;
+  font-family: inherit;
+  color: inherit;
+  cursor: default;
+  padding: 0;
+}
+
+.polaroid {
+  background: #f7f0e4;
+  padding: 7px 7px 6px;
+  box-shadow: 3px 4px 0 rgba(0, 0, 0, 0.28);
+  transform-origin: top center;
+}
+
+.polaroid::after {
+  content: "";
+  position: absolute;
+  top: -6px;
+  left: 50%;
+  width: 11px;
+  height: 11px;
+  margin-left: -5px;
+  background: var(--yarn);
+  border-radius: 50%;
+  box-shadow: 0 2px 0 rgba(0, 0, 0, 0.3);
+}
+
+.pic {
+  display: block;
+  height: 62px;
+  margin-bottom: 4px;
+  background: #c9b192;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+}
+
+.pic-notes {
+  background:
+    repeating-linear-gradient(
+      180deg,
+      #f4ead6 0 10px,
+      #d7c4a0 10px 11px
+    );
+}
+
+.pic-files {
+  background:
+    linear-gradient(180deg, #d4b56a 0 16px, #ead7a8 16px 100%);
+}
+
+.pic-hood {
+  background:
+    radial-gradient(circle at 50% 70%, #5c3d2e 22%, #c9b192 23%);
+}
+
+.lbl {
+  display: block;
+  font-size: 0.82rem;
+  line-height: 1.1;
+}
+
+.sticky-pin {
+  background: var(--sticky);
+  padding: 10px 8px;
+  box-shadow: 2px 3px 0 var(--ink);
+  transform: rotate(6deg);
+}
+
+#pin-notebook {
+  transform: rotate(-5deg);
+}
+
+#pin-files {
+  transform: rotate(3deg);
+}
+
+#pin-hoodies {
+  transform: rotate(-2deg);
+}
+
+/* windows. these are the os. manila folders with a titlebar */
+.win {
+  position: absolute;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  width: 380px;
+  min-height: 180px;
+  background: var(--manila);
+  border: 1px solid #b89a5e;
+  box-shadow:
+    8px 12px 0 rgba(40, 20, 8, 0.22),
+    0 0 0 1px rgba(255, 255, 255, 0.2) inset;
+}
+
+.win-tab {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  height: 32px;
+  padding: 0 8px;
+  background: var(--tab);
+  border-bottom: 1px solid #c4a45a;
+  cursor: default;
+  user-select: none;
+}
+
+.win-tab span {
+  font-size: 0.95rem;
+  flex: 1;
+}
+
+.dots {
+  width: 28px;
+  height: 8px;
+  background: repeating-linear-gradient(
+    90deg,
+    rgba(0, 0, 0, 0.2) 0 3px,
+    transparent 3px 7px
+  );
+}
+
+.win-x {
+  width: 22px;
+  height: 22px;
+  border: 1px solid #8a3030;
+  background: #c45c4a;
+  color: #f4ead6;
+  font-family: "Courier Prime", monospace;
+  font-size: 0.85rem;
+  line-height: 1;
+  cursor: pointer;
+  padding: 0;
+}
+
+.win-x:hover {
+  background: #a4161a;
+}
+
+.win-body {
+  flex: 1;
+  margin: 8px;
+  padding: 12px 14px;
+  background: var(--paper);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.win-body p {
+  margin: 0 0 8px;
+  line-height: 1.4;
+}
+
+.tiny {
+  font-size: 0.85rem;
+  opacity: 0.75;
+}
+
+.lined {
+  background-image: repeating-linear-gradient(
+    180deg,
+    var(--paper) 0 21px,
+    rgba(80, 50, 20, 0.1) 21px 22px
+  );
+}
+
+#note-list {
+  min-height: 48px;
+}
+
+#note-input {
+  display: block;
+  width: 100%;
+  margin: 8px 0;
+  padding: 6px 8px;
+  border: 1px dashed #b89b6a;
+  background: rgba(255, 255, 255, 0.6);
+  font-family: inherit;
+}
+
+#note-add {
+  border: 1px solid #b89b6a;
+  background: #ead7a8;
+  font-family: inherit;
+  padding: 4px 10px;
+  cursor: pointer;
+}
+
+#note-add:hover {
+  background: #f3e6bc;
+}
+
+/* stacked like a real desktop. not random scrap paper */
+#win-welcome {
+  top: 28px;
+  left: 160px;
+  width: 420px;
+  z-index: 14;
+}
+
+#win-notebook {
+  top: 88px;
+  left: 240px;
+  width: 360px;
+  z-index: 13;
+}
+
+#win-files {
+  top: 160px;
+  left: 470px;
+  width: 320px;
+  z-index: 12;
+}
+
+#win-hoodies {
+  top: 48px;
+  left: 560px;
+  width: 300px;
+  z-index: 11;
+}
+
+#win-shredder {
+  top: auto;
+  bottom: 18px;
+  left: auto;
+  right: 24px;
+  width: 260px;
+  min-height: 140px;
+  z-index: 12;
+}
+
+/* coffee on the files window. still there */
+#win-files .win-body {
+  position: relative;
+}
+
+#win-files .win-body::after {
+  content: "";
+  position: absolute;
+  width: 48px;
+  height: 48px;
+  right: 8px;
+  bottom: 6px;
+  border: 5px solid rgba(90, 50, 20, 0.18);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+/* actual desk. this is the taskbar. wood is down here only */
+#desk {
+  position: relative;
+  z-index: 30;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  height: 52px;
+  padding: 0 12px;
+  background:
+    repeating-linear-gradient(
+      90deg,
+      var(--desk) 0 18px,
+      var(--desk2) 18px 36px
+    );
+  border-top: 4px solid #2a1a10;
+  box-shadow: 0 -6px 12px rgba(0, 0, 0, 0.25);
+}
+
+.dock-app {
+  background: var(--manila);
+  color: var(--ink);
+  padding: 4px 10px 5px;
+  font-size: 0.8rem;
+  box-shadow: 0 2px 0 #1e120a;
+  transform: translateY(-6px);
+}
+
+.dock-app.on {
+  border-bottom: 3px solid var(--yarn);
+}
+
+.desk-name {
+  margin-left: auto;
+  color: #e8d5a8;
+  font-family: "Courier Prime", monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+}
+
+button {
+  color: inherit;
+}
+
+::selection {
+  background: #ead98a;
+}
+
+input:focus {
+  outline: 1px dotted #8a7050;
+}
