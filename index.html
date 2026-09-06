@@ -20,7 +20,7 @@
           <line x1="12" y1="30" x2="28" y2="52" />
           <line x1="28" y1="52" x2="14" y2="74" />
         </svg>
-        <!-- pins. they dont do anything yet -->
+        <!-- pins. they open folders now -->
         <button type="button" class="pin polaroid" id="pin-notebook">
           <span class="pic pic-notes"></span>
           <span class="lbl">notebook</span>
@@ -50,61 +50,60 @@
         </div>
       </div>
 
-      <div class="win folder" id="win-notebook">
-        <div class="win-tab" id="win-notebook-header">
-          <button type="button" class="win-x" id="win-notebook-close">x</button>
+      <div class=win id=win-notebook>
+        <div class=win-tab id=win-notebook-header>
+          <button type=button class=win-x id=win-notebook-close>x</button>
           <span>notebook</span>
-          <i class="dots"></i>
+          <i class=dots></i>
         </div>
-        <div class="win-body lined">
-          <div id="note-list"></div>
-          <input id="note-input" type="text" placeholder="scribble something" />
-          <button type="button" id="note-add">stick it</button>
+        <div class=win-body>
+          <p>notes loading...</p>
         </div>
       </div>
 
-      <div class="win folder" id="win-files">
-        <div class="win-tab" id="win-files-header">
-          <button type="button" class="win-x" id="win-files-close">x</button>
+      <div class=win id=win-files>
+        <div class=win-tab id=win-files-header>
+          <button type=button class=win-x id=win-files-close>x</button>
           <span>case files</span>
-          <i class="dots"></i>
+          <i class=dots></i>
         </div>
-        <div class="win-body">
-          <p>folders go here later. empty rn.</p>
+        <div class=win-body>
+          <p>case files loading...</p>
         </div>
       </div>
 
-      <div class="win folder" id="win-hoodies">
-        <div class="win-tab" id="win-hoodies-header">
-          <button type="button" class="win-x" id="win-hoodies-close">x</button>
+      <div class="win" id="win-hoodies">
+        <div class=win-tab id=win-hoodies-header>
+          <button type=button class=win-x id=win-hoodies-close>x</button>
           <span>CASE 0</span>
-          <i class="dots"></i>
+          <i class=dots></i>
         </div>
-        <div class="win-body">
-          <p>missing hoodies. photos later.</p>
+        <div class=win-body>
+          <p>CASE 0 loading...</p>
         </div>
       </div>
 
-      <div class="win folder" id="win-shredder">
-        <div class="win-tab" id="win-shredder-header">
-          <button type="button" class="win-x" id="win-shredder-close">x</button>
+      <div class=win id=win-shredder>
+        <div class=win-tab id=win-shredder-header>
+          <button type=button class=win-x id=win-shredder-close>x</button>
           <span>evidence destroyed</span>
-          <i class="dots"></i>
+          <i class=dots></i>
         </div>
-        <div class="win-body">
-          <p>nothing in here. yet.</p>
+        <div class=win-body>
+          <p>shredder loading...</p>
         </div>
       </div>
     </div>
 
-    <footer id="desk">
+
+    <footer id=desk>
       <span class="dock-app on">welcome</span>
-      <span class="dock-app on">notebook</span>
-      <span class="dock-app on">files</span>
-      <span class="dock-app on">CASE 0</span>
-      <span class="dock-app on">shredder</span>
-      <span class="desk-name">cipheros</span>
+      <span class=dock-app>notebook</span>
+      <span class=dock-app>files</span>
+      <span class=dock-app>CASE 0</span>
+      <span class=dock-app>shredder</span>
+      <span class=desk-name>cipheros</span>
     </footer>
-    <script src=os.js></script>
+    <script src=store.js></script>
   </body>
 </html>

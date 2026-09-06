@@ -31,7 +31,10 @@ body {
 body {
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
+  min-height: 100vh;  width: 100%;
+
+  background: var(--cork);
+
 }
 
 /* cork wall. not wood planks. not a phone on a table */
@@ -336,7 +339,13 @@ body {
 }
 
 #note-add:hover {
-  background: #f3e6bc;
+  background: #f3e6bc;}
+.note-tools #note-input {
+  width: auto;  flex: 1;
+  margin: 0;
+
+
+
 }
 
 /* stacked like a real desktop. not random scrap paper */
@@ -364,7 +373,7 @@ body {
 #win-hoodies {
   top: 48px;
   left: 560px;
-  width: 300px;
+  width: 420px;
   z-index: 11;
 }
 
@@ -445,5 +454,245 @@ button {
 }
 
 input:focus {
-  outline: 1px dotted #8a7050;
+  outline: 1px dotted #8a7050;}
+.empty {
+  color: rgba(42, 33, 24, 0.58);  font-size: 0.9rem;
+}
+.note-tools {  display: flex;
+  gap: 8px;  align-items: center;
+}
+
+.note-row {
+  display: flex;  align-items: center;
+  justify-content: space-between;
+
+  gap: 8px;  margin: 0 0 6px;
+  padding: 2px 0 2px 18px;  position: relative;
+}
+.note-row::before {  content: "*";
+  position: absolute;  left: 4px;
+  top: 2px;  color: var(--yarn);
+}
+.note-row button,.file-card {
+  border: 1px solid #b89b6a;  background: #ead7a8;
+  color: var(--ink);  font-family: inherit;
+  cursor: pointer;}
+.note-row button {
+  padding: 1px 7px;  font-size: 0.78rem;
+}
+.file-shelf {  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));  gap: 9px;
+  margin-bottom: 12px;}
+.file-card {
+  min-height: 56px;  padding: 15px 8px 6px;
+  text-align: left;  background:
+    linear-gradient(180deg, #caa65a 0 14px, #ecd29b 14px 100%);  box-shadow: 2px 3px 0 rgba(42, 33, 24, 0.24);
+}
+.file-card:hover,.note-row button:hover {
+  background: #f2dfaa;}
+#file-paper {  min-height: 76px;
+  padding: 10px 12px;
+
+  background: rgba(255, 255, 255, 0.36);  border: 1px dashed rgba(42, 33, 24, 0.25);
+  transform: rotate(-1deg);}
+.hoodie-case {
+  overflow: hidden;}
+.case-stamp {
+  display: inline-block;  margin-bottom: 6px;
+  padding: 2px 8px 0;  border: 2px solid var(--yarn);
+  color: var(--yarn);  font-family: "Courier Prime", monospace;
+  font-weight: 700;  letter-spacing: 0.08em;
+  transform: rotate(-4deg);
+
+
+}
+.hoodie-wall {  display: flex;
+  gap: 10px;  align-items: flex-start;
+  margin-top: 8px;
+
+}
+.hoodie-photo {  width: 31%;
+  min-width: 0;  padding: 7px 7px 10px;
+  background: #f7f0e4;  box-shadow: 2px 3px 0 rgba(42, 33, 24, 0.25);
+  text-align: center;}
+.hoodie-photo:nth-child(1) {
+  transform: rotate(-4deg);}
+.hoodie-photo:nth-child(2) {  transform: rotate(3deg);
+
+}
+.hoodie-photo:nth-child(3) {  transform: rotate(-1deg);
+}
+
+.hoodie-photo strong {
+  display: block;  margin: 4px 0 0;
+  color: var(--yarn);  font-family: "Courier Prime", monospace;
+  font-size: 0.72rem;
+
+}
+.hoodie-photo span {  display: block;
+  font-size: 0.72rem;  line-height: 1.1;
+}
+
+.hoodie-shot {
+  height: 86px;  position: relative;
+  overflow: hidden;  border: 1px solid rgba(42, 33, 24, 0.16);
+  background:    radial-gradient(circle at 34% 38%, rgba(255, 255, 255, 0.5), transparent 9px),
+    linear-gradient(135deg, #b88c5c, #725038);}
+.hoodie-shot::before {
+  content: "";  position: absolute;
+  left: 50%;
+
+  top: 14px;  width: 42px;
+  height: 52px;  margin-left: -21px;
+  background: #232323;  border-radius: 17px 17px 10px 10px;
+  box-shadow:    -23px 18px 0 -8px #232323,
+    23px 18px 0 -8px #232323;}
+.hoodie-shot::after {
+  content: "?";  position: absolute;
+  inset: 0;  display: grid;
+  place-items: center;  color: rgba(255, 255, 255, 0.52);
+  font-family: "Courier Prime", monospace;  font-size: 2.4rem;
+  font-weight: 700;}
+.hoodie-m::before {
+  background: #3c332d;  box-shadow:
+    -23px 18px 0 -8px #3c332d,    23px 18px 0 -8px #3c332d;
+}
+.hoodie-s::before {  background: #171717;
+  box-shadow:    -23px 18px 0 -8px #171717,
+    23px 18px 0 -8px #171717;}
+.shredder-box {  text-align: center;
+
+}
+.shred-mouth {  height: 22px;
+  max-width: 145px;
+
+  margin: 4px auto 12px;  background: #2a2118;
+  border: 4px solid #91724c;  box-shadow: inset 0 4px 0 rgba(255, 255, 255, 0.08);
+}
+.paper-strips {  display: flex;
+  justify-content: center;  gap: 4px;
+  min-height: 42px;}
+.paper-strips i {
+  width: 11px;  height: 38px;
+  background: #f4ead6;  border-left: 1px dashed #cdbb9a;
+  transform: rotate(var(--lean, -2deg));
+
+}
+.paper-strips i:nth-child(even) {  --lean: 4deg;
+  height: 32px;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }

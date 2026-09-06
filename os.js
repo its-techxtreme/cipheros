@@ -99,7 +99,7 @@ Object.values(apps).forEach((win) => {
   draggy(win);
 
   const x = win.querySelector(".win-x");
-  x.addEventListener("click", () => closeWin(win));
+  if (x) x.addEventListener("click", () => closeWin(win));
 });
 
 pin("#pin-notebook", "notebook");
@@ -110,7 +110,8 @@ pin("#pin-shredder", "shredder");
 tapeTitle.addEventListener("click", () => openWin("welcome"));
 
 Object.entries(apps).forEach(([name, win]) => {
-  if (name !== "welcome") win.style.display = "none";
+  if (!win) return;  if (name !== "welcome") win.style.display = "none";
+
 });
 
 tick();
