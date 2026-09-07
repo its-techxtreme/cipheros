@@ -22,6 +22,6 @@ polaroids on the left are apps. folders are windows. drag the tab (the little gr
 
 open `index.html` in a browser. thats the whole install.
 
-live: (dropping the url here once vercel stops being shy)
+live: https://cipheros-ten.vercel.app
 
 v1 is the desk. yarn and the rest of the case later.
