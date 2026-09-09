@@ -1,45 +1,24 @@
-const p4NoteKey = "cipheros-notes";
-const p4Files = {
+const noteKey = "cipheros-notes";
+
+const fileBlurb = {
   about: "this is my desk if my brain had folders. half notes, half evidence, half nonsense. yes thats three halves.",
-  build: "current case: make cipheros pass webos 1 without looking like the guide. folders move now. real apps are happening rn.",
+  build: "current case: cipheros. folders move. stuff is actually in them now.",
   music: "loop pile: late night coding music, random game osts, and whatever song gets stuck for 4 hours.",
 };
 
-let p4Notes = grab(p4NoteKey, []);if (!Array.isArray(p4Notes)) p4Notes = [];
+let notes = grab(noteKey, []);
+// localstorage can be cursed. dont trust it
+if (!Array.isArray(notes)) notes = [];
 
-let p4NoteList;
-let p4NoteInput;
-let p4FilePaper;
-function showP4Win(win) {  if (!win) return;
-  win.style.display = "flex";  front(win);
+let noteList;
+let noteInput;
+let filePaper;
+
+function showWin(win) {
+  if (!win) return;
+  win.style.display = "flex";
+  front(win);
 }
-function ensureP4Win(id, title) {  const old = document.getElementById(id);
-  if (old) return old;
-  const win = tag("div", "win folder");  const tab = tag("div", "win-tab");
-  const x = tag("button", "win-x", "x");  const body = tag("div", "win-body");
-  win.id = id;
-  x.type = "button";  tab.append(x, tag("span", "", title), tag("i", "dots"));
-  win.append(tab, body);  document.querySelector("#board").append(win);
-  win.style.display = "none";
-  draggy(win);  x.addEventListener("click", () => {
-    win.style.display = "none";  });
-  return win;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 function tag(name, className, text) {
   const node = document.createElement(name);
@@ -48,71 +27,73 @@ function tag(name, className, text) {
   return node;
 }
 
-function drawP4Notes() {
-  p4NoteList.textContent = "";
+function drawNotes() {
+  noteList.textContent = "";
 
-  if (p4Notes.length === 0) {
-    p4NoteList.append(tag("p", "empty", "blank page. weird."));
+  if (notes.length === 0) {
+    noteList.append(tag("p", "empty", "blank page. weird."));
     return;
   }
 
-  p4Notes.forEach((text, index) => {
+  notes.forEach((text, index) => {
     const row = tag("div", "note-row");
     const words = tag("span", "", text);
     const scratch = tag("button", "", "scratch");
 
     scratch.type = "button";
     scratch.addEventListener("click", () => {
-      p4Notes.splice(index, 1);
-      stash(p4NoteKey, p4Notes);
-      drawP4Notes();
+      notes.splice(index, 1);
+      stash(noteKey, notes);
+      drawNotes();
     });
 
     row.append(words, scratch);
-    p4NoteList.append(row);
+    noteList.append(row);
   });
 }
 
-function addP4Note() {
-  const text = p4NoteInput.value.trim();
+function addNote() {
+  const text = noteInput.value.trim();
   if (!text) return;
 
-  p4Notes.push(text);
-  stash(p4NoteKey, p4Notes);
-  p4NoteInput.value = "";
-  drawP4Notes();
+  notes.push(text);
+  stash(noteKey, notes);
+  noteInput.value = "";
+  drawNotes();
 }
 
 function setupNotebook() {
-  const body = document.querySelector("#win-notebook .win-body");  if (!body) return;
+  const body = document.querySelector("#win-notebook .win-body");
+  if (!body) return;
 
   const tools = tag("div", "note-tools");
   const add = tag("button", "", "pin note");
 
-  p4NoteList = tag("div");
-  p4NoteList.id = "note-list";
-  p4NoteInput = tag("input");
-  p4NoteInput.id = "note-input";
-  p4NoteInput.type = "text";
-  p4NoteInput.placeholder = "clue";
+  noteList = tag("div");
+  noteList.id = "note-list";
+  noteInput = tag("input");
+  noteInput.id = "note-input";
+  noteInput.type = "text";
+  noteInput.placeholder = "clue";
   add.type = "button";
   add.id = "note-add";
 
   body.textContent = "";
   body.classList.add("lined");
-  tools.append(p4NoteInput, add);
-  body.append(p4NoteList, tools, tag("p", "tiny", "saved in this browser. super official."));
+  tools.append(noteInput, add);
+  body.append(noteList, tools, tag("p", "tiny", "saved in this browser. super official."));
 
-  add.addEventListener("click", addP4Note);
-  p4NoteInput.addEventListener("keydown", (event) => {
-    if (event.key === "Enter") addP4Note();
+  add.addEventListener("click", addNote);
+  noteInput.addEventListener("keydown", (event) => {
+    if (event.key === "Enter") addNote();
   });
 
-  drawP4Notes();
+  drawNotes();
 }
 
 function setupFiles() {
-  const body = document.querySelector("#win-files .win-body");  if (!body) return;
+  const body = document.querySelector("#win-files .win-body");
+  if (!body) return;
 
   const shelf = tag("div", "file-shelf");
   const stuff = [
@@ -123,8 +104,8 @@ function setupFiles() {
   ];
 
   body.textContent = "";
-  p4FilePaper = tag("p", "", "pick a folder. pretend it has dust on it.");
-  p4FilePaper.id = "file-paper";
+  filePaper = tag("p", "", "pick a folder. pretend it has dust on it.");
+  filePaper.id = "file-paper";
 
   stuff.forEach(([name, label]) => {
     const btn = tag("button", "file-card", label);
@@ -132,21 +113,23 @@ function setupFiles() {
     btn.dataset.file = name;
     btn.addEventListener("click", () => {
       if (name === "hoodies") {
-        showP4Win(document.querySelector("#win-hoodies"));
+        showWin(document.querySelector("#win-hoodies"));
         return;
       }
 
-      p4FilePaper.textContent = p4Files[name];
+      filePaper.textContent = fileBlurb[name];
     });
     shelf.append(btn);
   });
 
-  body.append(shelf, p4FilePaper);
+  body.append(shelf, filePaper);
 }
 
 function setupHoodies() {
-  const body = document.querySelector("#win-hoodies .win-body");  if (!body) return;
+  const body = document.querySelector("#win-hoodies .win-body");
+  if (!body) return;
 
+  // no shop photos. blobs with a ? will have to do
   const wall = tag("div", "hoodie-wall");
 
   body.textContent = "";
@@ -172,7 +155,8 @@ function setupHoodies() {
 }
 
 function setupShredder() {
-  const body = document.querySelector("#win-shredder .win-body");  if (!body) return;
+  const body = document.querySelector("#win-shredder .win-body");
+  if (!body) return;
 
   const strips = tag("div", "paper-strips");
 
@@ -188,15 +172,7 @@ function setupShredder() {
   );
 }
 
-
 setupNotebook();
-
-
 setupFiles();
-
-
 setupHoodies();
 setupShredder();
-
-
-

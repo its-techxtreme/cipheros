@@ -1,27 +1,50 @@
 # CipherOS
 
-this is a corkboard that thinks its an operating system.
+A detective corkboard that runs in a browser tab. HTML, CSS and JavaScript. No frameworks, no build, no npm. Open `index.html` and it runs.
 
-polaroids on the left are apps. folders are windows. drag the tab (the little grip on the right). the scribbly `x` closes it. click a folder to bring it up. no min, no max, no resize. no password. ever.
+https://cipheros.techxtreme.me
+
+(if that domain is down: https://cipheros-ten.vercel.app)
 
 ![desk](shots/desk.png)
 
-## pins
+```
+index.html   the page
+style.css    cork, folders, polaroids
+os.js        drag, close, pins, clock
+apps.js      notebook, files, CASE 0, shredder
+store.js     loads os.js then apps.js
+shots/       screenshots for this readme
+```
 
-**notebook** — write clues. they stick around in this browser like a messy diary.
+## Running it
 
-**files** — manila junk. desk map, active case, loop pile, CASE 0.
+Double-click `index.html`, or serve the folder so everything actually loads:
 
-**hoodies** — CASE 0. campfire flagship hoodies walked off the swag shelf. L / M / S. we dont have shop photos so theyre sad silhouettes with a `?`. honestly that fits.
+```
+git clone https://github.com/its-techxtreme/cipheros.git
+cd cipheros
+python -m http.server 8000
+```
 
-**shredder** — `evidence destroyed: 0`. suspiciously clean. i didnt feed it anything on purpose.
+Then open http://127.0.0.1:8000
+
+## What's in it
+
+**The board** is the whole page. Cork wall, tape bar with a clock, polaroids on the left, wood strip at the bottom. No wallpaper of a phone on a desk.
+
+**Windows** are manila folders. Drag the tab (the grip on the right). The scribbly x closes them. Click a folder to bring it forward. No min, no max, no resize.
+
+**notebook** takes clues. Pin note. They stick in this browser after refresh (`cipheros-notes` in localStorage).
+
+**files** is a shelf of cards: desk map, active case, loop pile, CASE 0.
+
+**hoodies** is CASE 0. Campfire Flagship Hoodies went missing (L, M, S). No shop photos, so they're silhouettes with a ? on them.
+
+**shredder** says evidence destroyed: 0. It's empty on purpose.
 
 ![folders](shots/folders.png)
 
-## run it
+No password. Polaroids open the folders. Don't lose the pins.
 
-open `index.html` in a browser. thats the whole install.
-
-live: https://cipheros-ten.vercel.app
-
-v1 is the desk. yarn and the rest of the case later.
+MIT, see LICENSE.

@@ -34,6 +34,7 @@ function openWin(name) {
 }
 
 function closeWin(win) {
+  if (!win) return;
   win.style.display = "none";
 }
 
@@ -41,6 +42,7 @@ function pin(id, name) {
   const btn = document.querySelector(id);
   if (!btn) return;
 
+  // pins used to be dead. they open folders now
   btn.addEventListener("click", () => openWin(name));
 }
 
@@ -110,8 +112,8 @@ pin("#pin-shredder", "shredder");
 tapeTitle.addEventListener("click", () => openWin("welcome"));
 
 Object.entries(apps).forEach(([name, win]) => {
-  if (!win) return;  if (name !== "welcome") win.style.display = "none";
-
+  if (!win) return;
+  if (name !== "welcome") win.style.display = "none";
 });
 
 tick();

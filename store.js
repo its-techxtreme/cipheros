@@ -18,4 +18,5 @@ function loadScript(src, done) {
   document.body.append(script);
 }
 
-loadScript("os.js", () => loadScript("phase4.js"));
+// os first. folder guts after
+loadScript("os.js", () => loadScript("apps.js"));

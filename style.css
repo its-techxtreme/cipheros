@@ -37,7 +37,7 @@ body {
 
 }
 
-/* cork wall. not wood planks. not a phone on a table */
+/* cork not wood. people keep mixing those up */
 #board {
   position: relative;
   flex: 1;
@@ -74,7 +74,7 @@ body {
     radial-gradient(ellipse 80% 40% at 50% 100%, rgba(30, 16, 8, 0.38), transparent 55%);
 }
 
-/* menubar. full width like a real os. tape stuck on the cork */
+/* tape stuck across the top */
 #tape {
   position: relative;
   z-index: 30;
@@ -117,7 +117,7 @@ body {
   font-size: 0.95rem;
 }
 
-/* app icons. left column like every webos ever */
+/* the polaroids */
 #icons {
   position: absolute;
   top: 18px;
@@ -231,7 +231,7 @@ body {
   transform: rotate(-2deg);
 }
 
-/* windows. these are the os. manila folders with a titlebar */
+/* folders. drag the tab not the paper */
 .win {
   position: absolute;
   z-index: 10;
@@ -348,7 +348,7 @@ body {
 
 }
 
-/* stacked like a real desktop. not random scrap paper */
+/* spawn spots. they overlap on purpose */
 #win-welcome {
   top: 28px;
   left: 160px;
@@ -404,7 +404,7 @@ body {
   pointer-events: none;
 }
 
-/* actual desk. this is the taskbar. wood is down here only */
+/* wood only lives down here */
 #desk {
   position: relative;
   z-index: 30;
