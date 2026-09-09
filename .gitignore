@@ -11,6 +11,7 @@ guide.md
 docs/
 notes*.md
 *.plan.md
+scratch.html
 
 .env
 .env.*

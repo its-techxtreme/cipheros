@@ -41,7 +41,7 @@ Then open http://127.0.0.1:8000
 
 **hoodies** is CASE 0. Campfire Flagship Hoodies went missing (L, M, S). No shop photos, so they're silhouettes with a ? on them.
 
-**shredder** says evidence destroyed: 0. It's empty on purpose.
+**shredder** says evidence destroyed: 0. It's empty on purpose rn.
 
 ![folders](shots/folders.png)
 

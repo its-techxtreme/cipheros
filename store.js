@@ -3,6 +3,7 @@ function grab(key, backup) {
     const saved = localStorage.getItem(key);
     return saved ? JSON.parse(saved) : backup;
   } catch (err) {
+    // leftover junk in storage. just start over
     return backup;
   }
 }
@@ -18,5 +19,5 @@ function loadScript(src, done) {
   document.body.append(script);
 }
 
-// os first. folder guts after
+// windows have to exist before we stuff them
 loadScript("os.js", () => loadScript("apps.js"));

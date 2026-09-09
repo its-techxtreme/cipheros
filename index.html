@@ -10,17 +10,32 @@
     <header id="tape">
       <button type="button" id="tape-title">CipherOS</button>
       <p id="status">evidence desk</p>
-      <p id="clock">--:--</p>
+      <p id="clock">--:--</p> <!-- js fills this -->
     </header>
 
     <div id="board">
+      <!-- red string. js yanks the ends around -->
+      <svg id="strings" viewBox="0 0 1200 700" preserveAspectRatio="none" aria-hidden="true">
+        <line id="y1" class="slack" x1="0" y1="0" x2="0" y2="0" />
+        <line id="y2" x1="0" y1="0" x2="0" y2="0" />
+        <line id="y3" x1="0" y1="0" x2="0" y2="0" />
+        <line id="y4" class="slack" x1="0" y1="0" x2="0" y2="0" />
+        <line id="y5" x1="0" y1="0" x2="0" y2="0" />
+        <line id="y6" class="slack" x1="0" y1="0" x2="0" y2="0" />
+        <line id="y7" x1="0" y1="0" x2="0" y2="0" />
+        <line id="y8" class="slack" x1="0" y1="0" x2="0" y2="0" />
+      </svg>
+      <i class="tack" id="tack-a"></i>
+      <i class="tack" id="tack-b"></i>
+      <i class="tack" id="tack-c"></i>
+
       <nav id="icons" aria-label="apps">
+        <!-- pins. click these -->
         <svg id="yarn" viewBox="0 0 40 100" aria-hidden="true">
           <line x1="20" y1="12" x2="20" y2="88" />
           <line x1="12" y1="30" x2="28" y2="52" />
           <line x1="28" y1="52" x2="14" y2="74" />
         </svg>
-        <!-- pins. click these -->
         <button type="button" class="pin polaroid" id="pin-notebook">
           <span class="pic pic-notes"></span>
           <span class="lbl">notebook</span>
@@ -97,11 +112,11 @@
     </div>
 
     <footer id=desk>
-      <span class="dock-app on">welcome</span>
-      <span class=dock-app>notebook</span>
-      <span class=dock-app>files</span>
-      <span class=dock-app>CASE 0</span>
-      <span class=dock-app>shredder</span>
+      <span class="dock-app on" data-app="welcome">welcome</span>
+      <span class=dock-app data-app=notebook>notebook</span>
+      <span class=dock-app data-app=files>files</span>
+      <span class=dock-app data-app=hoodies>CASE 0</span>
+      <span class=dock-app data-app=shredder>shredder</span>
       <span class=desk-name>cipheros</span>
     </footer>
     <script src=store.js></script>

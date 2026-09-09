@@ -74,7 +74,7 @@ function setupNotebook() {
   noteInput = tag("input");
   noteInput.id = "note-input";
   noteInput.type = "text";
-  noteInput.placeholder = "clue";
+  noteInput.placeholder = "write a clue";
   add.type = "button";
   add.id = "note-add";
 
@@ -112,6 +112,7 @@ function setupFiles() {
     btn.type = "button";
     btn.dataset.file = name;
     btn.addEventListener("click", () => {
+      // CASE 0 is its own folder, not a note on the paper
       if (name === "hoodies") {
         showWin(document.querySelector("#win-hoodies"));
         return;
@@ -162,6 +163,7 @@ function setupShredder() {
 
   body.textContent = "";
   body.classList.add("shredder-box");
+  // fake strips. it still hasnt eaten anything
   for (let i = 0; i < 5; i += 1) strips.append(tag("i"));
 
   body.append(
@@ -176,3 +178,4 @@ setupNotebook();
 setupFiles();
 setupHoodies();
 setupShredder();
+strings();
