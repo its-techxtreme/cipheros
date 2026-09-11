@@ -1,10 +1,10 @@
 :root {
-  --cork: #c4a574;
-  --cork2: #b08958;
-  --cork3: #d2b48c;
-  --desk: #3d2a1a;
-  --desk2: #5a3d28;
-  --tape: #e8d5a8;
+  --cork: #c09a5c;
+  --cork2: #a07840;
+  --cork3: #d4b06e;
+  --desk: #3a2414;
+  --desk2: #5c3a22;
+  --tape: #ead7a3;
   --ink: #2a2118;
   --yarn: #9b2b2b;
   --manila: #e6cc94;
@@ -42,12 +42,12 @@ body {
   min-height: 0;
   background-color: var(--cork);
   background-image:
-    radial-gradient(circle at 12% 20%, rgba(80, 50, 25, 0.18) 1px, transparent 1.4px),
-    radial-gradient(circle at 48% 62%, rgba(80, 50, 25, 0.14) 1px, transparent 1.3px),
-    radial-gradient(circle at 81% 34%, rgba(255, 230, 190, 0.2) 1.2px, transparent 1.6px),
-    radial-gradient(circle at 30% 78%, rgba(80, 50, 25, 0.16) 1px, transparent 1.4px),
-    linear-gradient(90deg, var(--cork) 0, var(--cork2) 48%, var(--cork3) 100%);
-  background-size: 22px 22px, 31px 28px, 19px 25px, 27px 21px, 100% 100%;
+    radial-gradient(circle at 10% 18%, rgba(70, 38, 16, 0.38) 1.15px, transparent 1.5px),
+    radial-gradient(circle at 52% 61%, rgba(70, 38, 16, 0.32) 1px, transparent 1.4px),
+    radial-gradient(circle at 79% 32%, rgba(255, 228, 180, 0.32) 1.3px, transparent 1.7px),
+    radial-gradient(circle at 28% 76%, rgba(70, 38, 16, 0.3) 1.1px, transparent 1.5px),
+    linear-gradient(118deg, var(--cork2) 0, var(--cork) 36%, var(--cork3) 68%, var(--cork2) 100%);
+  background-size: 16px 20px, 27px 24px, 21px 18px, 33px 29px, 100% 100%;
 }
 
 /* lamp in the corner. grain on top */
@@ -57,7 +57,7 @@ body {
   inset: 0;
   pointer-events: none;
   z-index: 1;
-  opacity: 0.22;
+  opacity: 0.34;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }
 
@@ -68,8 +68,9 @@ body {
   pointer-events: none;
   z-index: 2;
   background:
-    radial-gradient(ellipse 70% 55% at 72% 0%, rgba(255, 214, 150, 0.22), transparent 58%),
-    radial-gradient(ellipse 80% 40% at 50% 100%, rgba(30, 16, 8, 0.38), transparent 55%);
+    radial-gradient(ellipse 55% 48% at 78% -8%, rgba(255, 220, 150, 0.42), transparent 54%),
+    radial-gradient(ellipse 38% 55% at 0% 28%, rgba(40, 16, 6, 0.32), transparent 52%),
+    radial-gradient(ellipse 90% 42% at 50% 108%, rgba(22, 10, 4, 0.52), transparent 58%);
 }
 
 /* tape stuck across the top */
@@ -81,11 +82,11 @@ body {
   align-items: center;
   justify-content: space-between;
   gap: 16px;
-  height: 42px;
-  padding: 0 14px;
-  background: var(--tape);
-  border-bottom: 2px solid #c4ae7a;
-  box-shadow: 0 3px 0 rgba(0, 0, 0, 0.18);
+  height: 46px;
+  padding: 0 16px 4px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.28) 0 7px, transparent 18px), repeating-linear-gradient(90deg, transparent 0 38px, rgba(160,120,50,0.14) 38px 39px), linear-gradient(180deg, #f3e3b6, var(--tape) 48%, #d8bc7a);
+  border-bottom: 0;
+  box-shadow: 0 5px 0 rgba(70, 40, 12, 0.22), inset 0 -3px 0 rgba(120, 90, 40, 0.18);
 }
 
 #tape-title {
@@ -504,16 +505,17 @@ body {
   display: flex;
   align-items: center;
   gap: 8px;
-  height: 52px;
+  height: 58px;
   padding: 0 12px;
   background:
+    radial-gradient(ellipse 52px 16px at 22% 58%, rgba(18, 8, 4, 0.42), transparent 70%),
     repeating-linear-gradient(
       90deg,
-      var(--desk) 0 18px,
-      var(--desk2) 18px 36px
+      var(--desk) 0 4px,
+      var(--desk2) 4px 7px
     );
-  border-top: 4px solid #2a1a10;
-  box-shadow: 0 -6px 12px rgba(0, 0, 0, 0.25);
+  border-top: 6px solid #1a1008;
+  box-shadow: inset 0 8px 0 rgba(255, 210, 150, 0.08), 0 -8px 16px rgba(0, 0, 0, 0.32);
 }
 
 .dock-app {
