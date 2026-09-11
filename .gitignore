@@ -15,6 +15,9 @@ scratch.html
 
 .env
 .env.*
+.vercel
+.env*
+
 # Human-Coder (local; do not commit)
 .cursor/rules/human-coder.mdc
 .cursor/mcp.json
