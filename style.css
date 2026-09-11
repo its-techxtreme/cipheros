@@ -104,16 +104,24 @@ body {
   margin: 0;
   flex: 1;
   text-align: center;
-  font-family: "Courier New", Courier, monospace;
-  font-size: 0.78rem;
-  letter-spacing: 0.08em;
-  opacity: 0.7;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 800;
+  font-size: 0.95rem;
+  letter-spacing: 0.28em;
+  opacity: 0.92;
 }
 
 #clock {
   margin: 0;
-  font-family: "Courier New", Courier, monospace;
-  font-size: 0.95rem;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: inherit;
+  cursor: pointer;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 800;
+  font-size: 1.05rem;
+  letter-spacing: 0.06em;
 }
 
 /* the polaroids */
@@ -155,16 +163,11 @@ body {
   pointer-events: none;
 }
 
-#strings line {
+#strings path {
   stroke: var(--yarn);
-  stroke-width: 2.4;
+  stroke-width: 2.6;
   stroke-linecap: round;
-  opacity: 0.88;
-}
-
-#strings line.slack {
-  stroke-width: 1.7;
-  opacity: 0.55;
+  opacity: 0.9;
 }
 
 .tack {
@@ -178,19 +181,14 @@ body {
   pointer-events: none;
 }
 
-#tack-a {
-  top: 42px;
-  left: 310px;
+#tack-clock {
+  top: 18px;
+  right: 22px;
+  left: auto;
 }
 
-#tack-b {
-  top: 200px;
-  left: 448px;
-}
-
-#tack-c {
-  top: 58%;
-  left: 168px;
+.tack.leftover {
+  z-index: 6;
 }
 
 .pin {
@@ -358,6 +356,7 @@ body {
   border: 1px solid rgba(0, 0, 0, 0.08);
   font-family: "Courier New", Courier, monospace;
   font-size: 15px;
+  letter-spacing: 0.04em;
   line-height: 1.5;
 }
 
@@ -449,6 +448,35 @@ body {
   width: 260px;
   min-height: 140px;
   z-index: 12;
+}
+
+#win-clock {
+  top: 36px;
+  right: 48px;
+  left: auto;
+  width: 280px;
+  z-index: 15;
+}
+
+.watch-box {
+  text-align: center;
+}
+
+.watch-face {
+  width: 132px;
+  height: 132px;
+  margin: 6px auto 10px;
+  border: 8px solid #2a2118;
+  border-radius: 50%;
+  background: #1c1510;
+  box-shadow: inset 0 0 0 5px #c4a574;
+}
+
+#watch-now {
+  font-family: "Courier New", Courier, monospace;
+  font-weight: 800;
+  font-size: 1.25rem;
+  letter-spacing: 0.04em;
 }
 
 /* coffee on the files window. still there */
@@ -644,119 +672,4 @@ input:focus {
 }
 .paper-strips i:nth-child(even) {  --lean: 4deg;
   height: 32px;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 }

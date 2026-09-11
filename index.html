@@ -9,25 +9,21 @@
   <body>
     <header id="tape">
       <button type="button" id="tape-title">CipherOS</button>
-      <p id="status">evidence desk</p>
-      <p id="clock">--:--</p> <!-- js fills this -->
+      <p id="status">EVIDENCE DESK</p>
+      <button type="button" id="clock">--:--</button>
     </header>
 
     <div id="board">
       <!-- red string. js yanks the ends around -->
-      <svg id="strings" viewBox="0 0 1200 700" preserveAspectRatio="none" aria-hidden="true">
-        <line id="y1" class="slack" x1="0" y1="0" x2="0" y2="0" />
-        <line id="y2" x1="0" y1="0" x2="0" y2="0" />
-        <line id="y3" x1="0" y1="0" x2="0" y2="0" />
-        <line id="y4" class="slack" x1="0" y1="0" x2="0" y2="0" />
-        <line id="y5" x1="0" y1="0" x2="0" y2="0" />
-        <line id="y6" class="slack" x1="0" y1="0" x2="0" y2="0" />
-        <line id="y7" x1="0" y1="0" x2="0" y2="0" />
-        <line id="y8" class="slack" x1="0" y1="0" x2="0" y2="0" />
+      <svg id="strings" viewBox="0 0 1200 700" preserveAspectRatio="xMinYMin meet" aria-hidden="true">
+        <path id="s-notebook" fill="none" />
+        <path id="s-files" fill="none" />
+        <path id="s-hoodies" fill="none" />
+        <path id="s-shredder" fill="none" />
+        <path id="s-welcome" fill="none" />
+        <path id="s-clock" fill="none" />
       </svg>
-      <i class="tack" id="tack-a"></i>
-      <i class="tack" id="tack-b"></i>
-      <i class="tack" id="tack-c"></i>
+      <i class="tack" id="tack-clock"></i>
 
       <nav id="icons" aria-label="apps">
         <!-- pins. click these -->
@@ -61,8 +57,7 @@
           <i class="dots"></i>
         </div>
         <div class="win-body">
-          <p>cipheros. this is the desk. polaroids on the left are apps. folders are windows. no password.</p>
-          <p class="tiny">poke around. dont lose the pins.</p>
+          <p>CipherOS. Polaroids on the left open folders. Drag a folder by the tab. The x closes it.</p>
         </div>
       </div>
 
@@ -109,6 +104,17 @@
           <p>shredder loading...</p>
         </div>
       </div>
+
+      <div class=win id=win-clock>
+        <div class=win-tab id=win-clock-header>
+          <button type=button class=win-x id=win-clock-close>x</button>
+          <span>watch</span>
+          <i class=dots></i>
+        </div>
+        <div class=win-body>
+          <p>watch loading...</p>
+        </div>
+      </div>
     </div>
 
     <footer id=desk>
@@ -117,6 +123,7 @@
       <span class=dock-app data-app=files>files</span>
       <span class=dock-app data-app=hoodies>CASE 0</span>
       <span class=dock-app data-app=shredder>shredder</span>
+      <span class=dock-app data-app=clock>watch</span>
       <span class=desk-name>cipheros</span>
     </footer>
     <script src=store.js></script>

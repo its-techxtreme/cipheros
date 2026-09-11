@@ -1,9 +1,9 @@
 const noteKey = "cipheros-notes";
 
 const fileBlurb = {
-  about: "this is my desk if my brain had folders. half notes, half evidence, half nonsense. yes thats three halves.",
-  build: "current case: cipheros. folders move. stuff is actually in them now.",
-  music: "loop pile: late night coding music, random game osts, and whatever song gets stuck for 4 hours.",
+  about: "Desk map. Polaroids on the left. Folders on the cork. Wood strip at the bottom.",
+  build: "Active case is CASE 0. Three Campfire Flagship Hoodies missing from the swag shelf. Sizes L, M, S.",
+  music: "Loop pile: late night coding playlists and game OSTs.",
 };
 
 let notes = grab(noteKey, []);
@@ -15,9 +15,7 @@ let noteInput;
 let filePaper;
 
 function showWin(win) {
-  if (!win) return;
-  win.style.display = "flex";
-  front(win);
+  if (win) openWin(win.id.replace("win-", ""));
 }
 
 function tag(name, className, text) {
@@ -31,7 +29,7 @@ function drawNotes() {
   noteList.textContent = "";
 
   if (notes.length === 0) {
-    noteList.append(tag("p", "empty", "blank page. weird."));
+    noteList.append(tag("p", "empty", "No notes yet."));
     return;
   }
 
@@ -81,7 +79,7 @@ function setupNotebook() {
   body.textContent = "";
   body.classList.add("lined");
   tools.append(noteInput, add);
-  body.append(noteList, tools, tag("p", "tiny", "saved in this browser. super official."));
+  body.append(noteList, tools, tag("p", "tiny", "Saved in this browser."));
 
   add.addEventListener("click", addNote);
   noteInput.addEventListener("keydown", (event) => {
@@ -104,7 +102,7 @@ function setupFiles() {
   ];
 
   body.textContent = "";
-  filePaper = tag("p", "", "pick a folder. pretend it has dust on it.");
+  filePaper = tag("p", "", "Open a card.");
   filePaper.id = "file-paper";
 
   stuff.forEach(([name, label]) => {
@@ -137,7 +135,7 @@ function setupHoodies() {
   body.classList.add("hoodie-case");
   body.append(
     tag("p", "case-stamp", "MISSING / CASE 0"),
-    tag("p", "", "campfire flagship hoodies vanished from the swag shelf. no suspects yet. just these sad pics.")
+    tag("p", "", "Campfire Flagship Hoodies missing from the swag shelf. Sizes L, M, and S. No photos of the real ones, so these are stand-ins.")
   );
 
   ["L", "M", "S"].forEach((size) => {
@@ -168,14 +166,29 @@ function setupShredder() {
 
   body.append(
     tag("div", "shred-mouth"),
-    tag("p", "", "evidence destroyed: 0"),
-    tag("p", "tiny", "nobody has fed it yet. suspiciously clean."),
+    tag("p", "", "Evidence destroyed: 0"),
+    tag("p", "tiny", "Empty."),
     strips
   );
+}
+
+function setupClock() {
+  const body = document.querySelector("#win-clock .win-body");
+  if (!body) return;
+
+  const face = tag("div", "watch-face");
+  const now = tag("p", "");
+  now.id = "watch-now";
+
+  body.textContent = "";
+  body.classList.add("watch-box");
+  body.append(face, now, tag("p", "tiny", "The time on the tape opens this folder."));
 }
 
 setupNotebook();
 setupFiles();
 setupHoodies();
 setupShredder();
+setupClock();
 strings();
+tick();
