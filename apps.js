@@ -7,7 +7,6 @@ const fileBlurb = {
 };
 
 let notes = grab(noteKey, []);
-// localstorage can be cursed. dont trust it
 if (!Array.isArray(notes)) notes = [];
 
 let noteList;
@@ -161,7 +160,6 @@ function setupShredder() {
 
   body.textContent = "";
   body.classList.add("shredder-box");
-  // fake strips. it still hasnt eaten anything
   for (let i = 0; i < 5; i += 1) strips.append(tag("i"));
 
   body.append(
@@ -185,10 +183,34 @@ function setupClock() {
   body.append(face, now, tag("p", "tiny", "The time on the tape opens this folder."));
 }
 
+function setupKit() {
+  const body = document.querySelector("#win-kit .win-body");
+  if (!body) return;
+
+  const row = tag("div", "kit-row");
+  body.textContent = "";
+  body.classList.add("kit-box");
+
+  ["cut", "yarn", "knot"].forEach((name) => {
+    const b = tag("button", "tool", name);
+    b.type = "button";
+    b.dataset.tool = name;
+    if (name === "yarn") b.classList.add("h");
+    b.addEventListener("click", () => {
+      row.querySelectorAll(".tool").forEach((t) => t.classList.remove("h"));
+      b.classList.add("h");
+    });
+    row.append(b);
+  });
+
+  body.append(row, tag("p", "tiny", "Pick one. Cutting comes later."));
+}
+
 setupNotebook();
 setupFiles();
 setupHoodies();
 setupShredder();
 setupClock();
+setupKit();
 strings();
 tick();

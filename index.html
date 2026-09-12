@@ -14,7 +14,6 @@
     </header>
 
     <div id="board">
-      <!-- red string. js yanks the ends around -->
       <svg id="strings" viewBox="0 0 1200 700" preserveAspectRatio="xMinYMin meet" aria-hidden="true">
         <path id="s-notebook" fill="none" />
         <path id="s-files" fill="none" />
@@ -22,11 +21,11 @@
         <path id="s-shredder" fill="none" />
         <path id="s-welcome" fill="none" />
         <path id="s-clock" fill="none" />
+        <path id="s-kit" fill="none" />
       </svg>
       <i class="tack" id="tack-clock"></i>
 
       <nav id="icons" aria-label="apps">
-        <!-- pins. click these -->
         <svg id="yarn" viewBox="0 0 40 100" aria-hidden="true">
           <line x1="20" y1="12" x2="20" y2="88" />
           <line x1="12" y1="30" x2="28" y2="52" />
@@ -47,12 +46,23 @@
         <button type="button" class="pin sticky-pin" id="pin-shredder">
           <span class="lbl">shredder</span>
         </button>
+        <button type="button" class="pin kit-pin" id="pin-kit">
+          <span class="lbl">kit</span>
+        </button>
       </nav>
 
-      <!-- folders dump. most start hidden -->
+      <article class="scrap" id="scrap-one" style="left:140px;top:320px">
+        <p class="scrap-title">locker note</p>
+        <p>copier jammed at 3. someone yanked the hoodie bin.</p>
+      </article>
+      <article class="scrap" id="scrap-two" style="left:430px;top:390px">
+        <p class="scrap-title">lost + found</p>
+        <p>empty hook where L used to hang. tape residue.</p>
+      </article>
+
       <div class="win folder" id="win-welcome">
         <div class="win-tab" id="win-welcome-header">
-          <button type="button" class="win-x" id="win-welcome-close">x</button>
+          <button type="button" class="x" id="win-welcome-close">x</button>
           <span>welcome</span>
           <i class="dots"></i>
         </div>
@@ -63,7 +73,7 @@
 
       <div class=win id=win-notebook>
         <div class=win-tab id=win-notebook-header>
-          <button type=button class=win-x id=win-notebook-close>x</button>
+          <button type=button class=x id=win-notebook-close>x</button>
           <span>notebook</span>
           <i class=dots></i>
         </div>
@@ -74,7 +84,7 @@
 
       <div class=win id=win-files>
         <div class=win-tab id=win-files-header>
-          <button type=button class=win-x id=win-files-close>x</button>
+          <button type=button class=x id=win-files-close>x</button>
           <span>case files</span>
           <i class=dots></i>
         </div>
@@ -85,7 +95,7 @@
 
       <div class="win" id="win-hoodies">
         <div class=win-tab id=win-hoodies-header>
-          <button type=button class=win-x id=win-hoodies-close>x</button>
+          <button type=button class=x id=win-hoodies-close>x</button>
           <span>CASE 0</span>
           <i class=dots></i>
         </div>
@@ -96,7 +106,7 @@
 
       <div class=win id=win-shredder>
         <div class=win-tab id=win-shredder-header>
-          <button type=button class=win-x id=win-shredder-close>x</button>
+          <button type=button class=x id=win-shredder-close>x</button>
           <span>evidence destroyed</span>
           <i class=dots></i>
         </div>
@@ -107,12 +117,23 @@
 
       <div class=win id=win-clock>
         <div class=win-tab id=win-clock-header>
-          <button type=button class=win-x id=win-clock-close>x</button>
+          <button type=button class=x id=win-clock-close>x</button>
           <span>watch</span>
           <i class=dots></i>
         </div>
         <div class=win-body>
           <p>watch loading...</p>
+        </div>
+      </div>
+
+      <div class=win id=win-kit>
+        <div class=win-tab id=win-kit-header>
+          <button type=button class=x id=win-kit-close>x</button>
+          <span>kit</span>
+          <i class=dots></i>
+        </div>
+        <div class=win-body>
+          <p>kit loading...</p>
         </div>
       </div>
     </div>
@@ -124,6 +145,7 @@
       <span class=dock-app data-app=hoodies>CASE 0</span>
       <span class=dock-app data-app=shredder>shredder</span>
       <span class=dock-app data-app=clock>watch</span>
+      <span class=dock-app data-app=kit>kit</span>
       <span class=desk-name>cipheros</span>
     </footer>
     <script src=store.js></script>

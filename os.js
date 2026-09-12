@@ -9,6 +9,7 @@ const apps = {
   shredder: document.querySelector("#win-shredder"),
   welcome: document.querySelector("#win-welcome"),
   clock: document.querySelector("#win-clock"),
+  kit: document.querySelector("#win-kit"),
 };
 
 const pinFor = {
@@ -18,6 +19,7 @@ const pinFor = {
   shredder: "#pin-shredder",
   welcome: "#pin-notebook",
   clock: "#tack-clock",
+  kit: "#pin-kit",
 };
 
 let topZ = 30;
@@ -41,7 +43,7 @@ function dropTack(name) {
   let t = document.querySelector("#drop-" + name);
   if (!t) {
     t = document.createElement("i");
-    t.className = "tack leftover";
+    t.className = "tack o";
     t.id = "drop-" + name;
     t.style.display = "none";
     board.append(t);
@@ -58,7 +60,7 @@ function curve(id, a, b) {
   const path = document.querySelector(id);
   if (!path || !a || !b) return;
   const mx = (a.x + b.x) / 2 + (b.y - a.y) * 0.12;
-  const my = (a.y + b.y) / 2 + 48;
+  const my = (a.y + b.y) / 2 + 64;
   path.setAttribute("d", "M " + a.x + " " + a.y + " Q " + mx + " " + my + " " + b.x + " " + b.y);
 }
 
@@ -213,7 +215,7 @@ Object.values(apps).forEach((win) => {
   if (!win) return;
   draggy(win);
 
-  const x = win.querySelector(".win-x");
+  const x = win.querySelector(".x");
   if (x) x.addEventListener("click", () => closeWin(win));
 });
 
@@ -221,6 +223,7 @@ pin("#pin-notebook", "notebook");
 pin("#pin-files", "files");
 pin("#pin-hoodies", "hoodies");
 pin("#pin-shredder", "shredder");
+pin("#pin-kit", "kit");
 
 tapeTitle.addEventListener("click", () => openWin("welcome"));
 if (clock) clock.addEventListener("click", () => openWin("clock"));
